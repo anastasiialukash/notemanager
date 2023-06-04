@@ -1,9 +1,10 @@
 import './App.css';
-import {ManagerContainer} from "./Components/ManagerContainer/Container";
+import {ManagerContainer} from "./components/ManagerContainer/Container";
+import {SidebarPanel} from "./components/SidebarPanel/SidebarPanel";
 
 function App() {
   return (
-      <ManagerContainer></ManagerContainer>
+      <ManagerContainer />
   );
 }
 
