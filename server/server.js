@@ -5,6 +5,7 @@ var express = require('express')
   , app = express()
   , directoriesRouter = require('./routes/directories')
   , noticesRouter = require('./routes/notices')
+    ,loginRouter = require('./routes/login')
 
 app.use(cors())
 app.use(express.static('public'))
@@ -16,6 +17,7 @@ app.get('/', function (req, res) {
 
 app.use('/directories', directoriesRouter)
 app.use('/notices', noticesRouter)
+app.use('/login', loginRouter);
 
 var server = app.listen(3001, function () {
   var port = server.address().port
