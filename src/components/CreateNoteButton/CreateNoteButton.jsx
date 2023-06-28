@@ -9,7 +9,7 @@ import Stack from '@mui/material/Stack';
 
 export const CreateNoteButton = () => {
     const [description, setDescription] = useState(null);
-    const [modalIsOpen, setIsOpen] = React.useState(false);
+    const [modalIsOpen, setIsOpen] = useState(false);
     const handleClose = () => {
         setDescription(null);
         setIsOpen(false);
@@ -62,8 +62,7 @@ export const CreateNoteButton = () => {
                 isOpen={modalIsOpen}
                 onRequestClose={closeModal}
                 style={customStyles}
-                contentLabel="Example Modal"
-            >
+                contentLabel="Example Modal">
                 <div style={{
                     display: 'block',
                     width: 700,

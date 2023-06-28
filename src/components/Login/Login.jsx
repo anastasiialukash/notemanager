@@ -30,7 +30,7 @@ export const Login = ({setToken}) => {
     return (
         <div>
             <Header/>
-            <div className="login-wrapper" style={{marginTop:"100px"}}>
+            <div style={{marginTop:"100px", display:"flex", flexDirection:"column", alignItems:"center"}}>
                 <h1>Sign In</h1>
                 <form onSubmit={handleSubmit}>
                     <label>
