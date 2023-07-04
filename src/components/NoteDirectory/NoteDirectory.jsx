@@ -51,7 +51,7 @@ export const NoteDirectory = () => {
         const arr = [];
 
         for(const key in keys) {
-            const children = group[keys[key]].map(({ title, id, description }) => ({id: id, name: title, description: description}));
+            const children = group[keys[key]].map(({ title, id, description, position }) => ({id: id, name: title, description: description, position: position}));
             const dirName = listOfDirs.filter(({ id }) => id === parseInt(keys[key]))[0];
             const dirNode = {id: 1, name: dirName.name, children: children}
             arr.push(dirNode);
@@ -86,9 +86,11 @@ export const NoteDirectory = () => {
     const handleSave = () => {
         const requestBody =
             {
-                title: selectedNode.title,
+                id: selectedNode.id,
+                title: selectedNode.name,
                 description: description,
                 directoryId: 1,
+                position: selectedNode.position,
                 tags: "jhjhj"
             };
 
@@ -160,4 +162,3 @@ export const NoteDirectory = () => {
         </div>
     );
 }
-
