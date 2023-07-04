@@ -9,16 +9,22 @@ import Stack from '@mui/material/Stack';
 
 export const CreateNoteButton = () => {
     const [description, setDescription] = useState(null);
+    const [title, setTitle] = useState(null);
     const [modalIsOpen, setIsOpen] = useState(false);
     const handleClose = () => {
         setDescription(null);
         setIsOpen(false);
     }
-    const handleChange = (input) => setDescription(input.target.value);
+    const handleDescriptionChange = (input) => {
+        setDescription(input.target.value);
+    }
+    const handleTitleChange = (input) => {
+        setTitle(input.target.value);
+    }
     const handleSave = () => {
         const requestBody =
             {
-                title: "test",
+                title: title,
                 description: description,
                 directoryId: 1,
                 tags: "jhjhj"
@@ -68,7 +74,7 @@ export const CreateNoteButton = () => {
                     width: 700,
                     padding: 30
                 }}>
-                    <NoteForm handleChange={handleChange}/>
+                    <NoteForm handleDescriptionChange={handleDescriptionChange} handleTitleChange={handleTitleChange}/>
                     <Stack sx={{justifyContent: "center"}} direction="row" spacing={2}>
                         <Button sx={{color: 'black'}} size="medium" onClick={handleSave}>Save</Button>
                         <Button sx={{color: 'black'}} size="medium" onClick={handleClose}>Close</Button>

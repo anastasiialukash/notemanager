@@ -6,3 +6,5 @@ router.post("/", (req, res) => {
         token: 'test123'
     });
 })
+
+module.exports = router
