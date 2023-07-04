@@ -35,10 +35,6 @@ export const NoteDirectory = () => {
         getNotes();
     }, [notes]);
 
-    useEffect(() => {
-        handleData();
-    }, [data]);
-
     const getDirs = async () => {
         const response = await axios.get("http://localhost:3001/directories");
         setDirs(response.data);
@@ -46,6 +42,8 @@ export const NoteDirectory = () => {
     const getNotes = async () => {
         const response = await axios.get("http://localhost:3001/notices");
         setListOfNotes(response.data);
+        const data = getListOfNodes(dirs, notes)
+        setData(data);
     }
     const getListOfNodes = (listOfDirs, listOfNotes) => {
         const group = _.mapValues(_.groupBy(listOfNotes, 'directoryId'));
@@ -60,10 +58,6 @@ export const NoteDirectory = () => {
         }
 
         return arr;
-    }
-    const handleData = () => {
-        const listOfNodes = getListOfNodes(dirs, notes);
-        setData(listOfNodes);
     }
     const findNodeById = (arr, id) => {
         let found;
