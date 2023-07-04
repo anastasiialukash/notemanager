@@ -84,23 +84,23 @@ export const NoteDirectory = () => {
         }
     };
     const handleSave = () => {
-        // const requestBody =
-        //     {
-        //         title: selectedNode.title,
-        //         description: description,
-        //         directoryId: 1,
-        //         tags: "jhjhj"
-        //     };
-        //
-        // axios.put(`http://localhost:3001/notices/${selectedNode.id}`, requestBody)
-        //     .then(function (response) {
-        //         console.log(response);
-        //     })
-        //     .catch(function (error) {
-        //             console.log(error);
-        //         }
-        //     );
-        // setIsModalOpen(false);
+        const requestBody =
+            {
+                title: selectedNode.title,
+                description: description,
+                directoryId: 1,
+                tags: "jhjhj"
+            };
+
+        axios.put(`http://localhost:3001/notices/${selectedNode.id}`, requestBody)
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                    console.log(error);
+                }
+            );
+        setIsModalOpen(false);
     }
     const handleClose = () => {
         setIsModalOpen(false);
